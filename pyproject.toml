@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "schnetkit"
+version = "0.1.0"
+description = "tools for schnetpack"
+authors = ["Marcel Langer <dev@marcel.science>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+schnetpack =  { git = "https://github.com/atomistic-machine-learning/schnetpack.git", branch = "master" }
+specable = { git = "https://github.com/sirmarcel/specable.git", branch="main" }
+
+[tool.poetry.dev-dependencies]
+nose = "^1.3.7"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
