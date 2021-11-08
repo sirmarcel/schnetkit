@@ -110,6 +110,10 @@ class SchNet(Model):
     def to(self, device):
         self.model.to(device)
 
+    @property
+    def cutoff(self):
+        return self.config_representation["cutoff"]
+
 
 def get_atomwise(n_in, mean, stddev, n_layers, n_neurons):
 

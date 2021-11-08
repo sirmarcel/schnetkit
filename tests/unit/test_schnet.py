@@ -17,6 +17,6 @@ class TestSchnet(Tempdir, TestCase):
         schnet2 = from_yaml(self.tempdir / "model.yaml")
 
         self.assertEqual(
-            schnet.config_representation["cutoff"],
-            schnet2.config_representation["cutoff"],
+            schnet.cutoff,
+            schnet2.cutoff,
         )
