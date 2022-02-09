@@ -4,7 +4,7 @@ from unittest import TestCase
 from ase.io import Trajectory
 
 import schnetkit
-from schnetkit.dataset import Dataset
+from schnetkit.train.dataset import Dataset
 
 
 from tempdir import Tempdir

@@ -3,7 +3,7 @@ from specable import Interface
 from .schnet import SchNet
 from .engine import load, Model
 from .ase import Calculator, Converter
-from .dataset import Dataset
+from .train import Dataset
 
 components = [SchNet, Dataset]
 

@@ -12,7 +12,7 @@ from schnetpack.data.atoms import _convert_atoms
 from vibes.helpers import progressbar
 
 from schnetkit import keys
-from .engine import Stateful
+from schnetkit.engine import Stateful
 
 nan = float("nan")
 
