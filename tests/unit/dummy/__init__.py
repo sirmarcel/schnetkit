@@ -21,4 +21,4 @@ class Dummy(Stateful):
         self.state = "tired"
 
 
-models = [Dummy]
+components = [Dummy]
