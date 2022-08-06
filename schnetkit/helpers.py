@@ -1,6 +1,13 @@
 import torch
 
 
+# TODO: replace with comms
+def talk(msg, **kwargs):
+    """wrapper for `utils.talk` with prefix"""
+    from vibes.helpers import talk as _talk
+    return _talk(msg, prefix="schnetkit", **kwargs)
+
+
 def guess_device_settings(device=None, parallel=None):
     if device is None:
         if torch.cuda.is_available():

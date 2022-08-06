@@ -8,8 +8,6 @@ from ase.calculators.calculator import PropertyNotImplementedError
 from schnetpack.environment import AseEnvironmentProvider
 from schnetpack.data.atoms import _convert_atoms
 
-# TODO: replace with comms when we decide to kill legacy support
-from vibes.helpers import progressbar
 
 from schnetkit import keys
 from schnetkit.engine import Stateful
@@ -106,11 +104,12 @@ class Dataset(torch.utils.data.Dataset, Stateful):
 
         """
         from ase import Atoms
+        # TODO: progressbar
 
         if isinstance(iterable, Atoms):
             iterable = [Atoms]
 
-        for atoms in progressbar(iterable, prefix="importing atoms..."):
+        for atoms in iterable:
             self.data.append(
                 convert_atoms(atoms, self.converter, self.offset, stress=stress)
             )
