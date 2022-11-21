@@ -63,14 +63,19 @@ class Converter:
             return self._needs_update(atoms)
 
     def _needs_update(self, atoms):
-        if (self.atoms.get_cell() != atoms.get_cell()).any() or (
-            self.atoms.get_pbc() != atoms.get_pbc()
-        ).any():
+        if (
+            (self.atoms.get_cell() != atoms.get_cell()).any()
+            or (self.atoms.get_pbc() != atoms.get_pbc()).any()
+            or self.atoms.get_positions().shape != atoms.get_positions().shape
+            or (self.atoms.get_atomic_numbers() != atoms.get_atomic_numbers()).any()
+        ):
             return True
 
         my_positions = self.atoms.get_positions()
         new_positions = atoms.get_positions()
-        return ((my_positions - new_positions) ** 2).sum(1).max() > self.skin ** 2
+        return ((my_positions - new_positions) ** 2).sum(1).max() > (
+            0.5 * self.skin
+        ) ** 2
 
 
 class FakeEnvironmentProvider(BaseEnvironmentProvider):
